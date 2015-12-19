@@ -1,0 +1,2 @@
+AppBundle\Entity\Users:
+    exclusion_policy: ALL

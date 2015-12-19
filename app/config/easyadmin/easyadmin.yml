@@ -1,0 +1,69 @@
+easy_admin:
+    site_name: 'Demo'
+    design:
+        theme: 'default'
+        brand_color: '#1ABC9C'
+        color_scheme: 'dark'
+        form_theme: 'vertical'
+        assets:
+            css:
+            js:
+    formats:
+        date:     'd/m/Y'
+        time:     'H:i'
+        datetime: 'd/m/Y H:i:s'
+    list:
+        max_results: 20
+        actions:
+            - { name: 'edit', icon: 'pencil', label: '' }
+    disabled_actions: ['show']
+    entities:
+        Users:
+            label: 'Gestor de usuarios'
+            class: AppBundle\Entity\Users
+            list:
+                title: "Gestor de Usuarios"
+                fields:
+                    - { property: 'id', label: 'ID' }
+                    - { property: 'username', label: 'Usuario' }
+                    - { property: 'email', label: 'Correo electrónico' }
+                    - { property: 'locked', label: 'Bloqueado' }
+                    - { property: 'enabled', label: 'Activado' }
+                    - { property: 'last_login', label: 'Última visita', type: 'datetime' }
+                    - { property: 'created_at', type: 'datetime', label: 'Fecha de creación' }
+                    - { property: 'modified_at', type: 'datetime', label: 'Fecha de modificación' }
+            form:
+                fields:
+                    - { property: 'username', label: 'Usuario' }
+                    - { property: 'email', label: 'Correo electrónico', type: 'email', required: true }
+                    - { property: 'plainPassword', label: 'Contraseña', type: 'password' }
+                    - { property: 'groups', label: 'Grupos' }
+                    - { property: 'locked', label: 'Bloqueado' }
+                    - { property: 'enabled', label: 'Activado' }
+        Groups:
+            label: 'Gestor de grupos'
+            class: AppBundle\Entity\Groups
+            list:
+                title: "Gestor de Usuarios"
+                fields:
+                    - { property: 'id', label: 'ID' }
+                    - { property: 'name', label: 'Nombre' }
+            form:
+                fields:
+                    - { property: 'name', label: 'Nombre' }
+                    - { property: 'roles', label: 'Rol' }
+        Gallery:
+            label: 'Galería múltimedia'
+            class: AppBundle\Entity\Gallery
+            list:
+                title: "Gestor de Multimedia"
+                fields:
+                    - { property: 'id', label: 'ID' }
+                    - { property: 'path', label: 'Ruta' }
+                    - { property: 'context', label: 'Contexto' }
+                    - { property: 'created_at', type: 'datetime', label: 'Fecha de creación' }
+                    - { property: 'modified_at', type: 'datetime', label: 'Fecha de modificación' }
+            form:
+                fields:
+                    - { property: 'file', type: 'file', label: 'Subir Recurso' }
+                    - { property: 'context', label: 'Contexto' }
